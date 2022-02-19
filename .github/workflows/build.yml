@@ -1,0 +1,26 @@
+name: build
+
+on: [push]
+
+jobs:
+  openbios:
+    name: "OpenBIOS"
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        submodules: 'recursive'
+
+    - name: Build
+      run: |
+        cd pcsx-redux-mips
+        touch env.list
+        cd openbios
+        ../dockermake.sh
+
+    - name: Upload Github
+      uses: actions/upload-artifact@v2
+      with: 
+        name: openbios.bin
+        path: pcsx-redux-mips/openbios/openbios.bin

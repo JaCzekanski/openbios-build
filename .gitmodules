@@ -1,0 +1,6 @@
+[submodule "openbios"]
+	path = openbios
+	url = https://github.com/pcsx-redux/nugget
+[submodule "pcsx-redux-mips"]
+	path = pcsx-redux-mips
+	url = https://github.com/pcsx-redux/nugget
